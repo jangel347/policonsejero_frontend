@@ -1,24 +1,45 @@
 import '../css/HomePage.css';
+import { useState } from "react";
 import logo from '../images/politecnico-grancolombiano_1.png';
-import { FaSearch } from 'react-icons/fa';
-import { IconContext } from "react-icons";
+//Components
+import SearchMainComponent from '../components/SearchMainComponent';
+import SearchResultComponent from '../components/SearchResultComponent';
 
 export default function Home() {
-    return <main className="container-fluid wrapper fadeInDown">
-        <div className="container mt-4 col-md-12 col-12 col-sm-12 col-lg-10 col-xl-8">
-            <div className="row d-flex justify-content-center">
-                <img src={logo} alt="Logo Politécnico Grancolombiano" className="logo" id="logo_poli" />
-                <h3 className="heading mt-5 text-center">¿Cómo puedo ayudarte?</h3>
-                <div className="d-flex justify-content-center">
-                    <div className="search">
-                        <textarea className="search-input" id="descripcion" rows="2"
-                            placeholder="Describe la situación..."></textarea>
-                        <a href="#" className="search-icon">
-                                <FaSearch size={20} />
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+    const [situationVal, setSituationEl] = useState('');
+    const [result, setResult] = useState(false);
+    const setSituation = (d)=>{
+        setSituationEl(d)
+    }
+    const reqSearch = async () => {
+        const apiResponse = await fetch(
+            'http://localhost:3900/api/search/list', {
+            method: 'POST',
+            mode: "cors",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({
+                "situation": situationVal
+            }),
+        });
+        const data = await apiResponse.json();
+        setResult(data);
+    }
+
+    return (
+        <div>
+            {!result ? (
+                // <div>HOLA2</div>
+                <SearchResultComponent setSituationF={setSituation}  />
+            ) : (
+                <SearchMainComponent setSituationF={setSituation} />
+                // <div>HOLA2</div>
+            )}
+
         </div>
-    </main>;
+    );
 }
