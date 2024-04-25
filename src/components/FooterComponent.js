@@ -1,10 +1,9 @@
 
-import {
-    Link
-} from "react-router-dom";
-export default function FooterComponent() {
+import { Link } from "react-router-dom";
+export default function FooterComponent(props) {
+    const { result } = props;
     return (
-        <footer className="fixed-bottom">
+        <footer className={((result) ? '' : 'fixed-bottom') + ' bg-white mt-3'}>
             <ul className="nav justify-content-center border-top mb-1">
                 <li className="nav-item">
                     <Link to={"/"} className="nav-link px-2 text-body-secondary">Inicio</Link>

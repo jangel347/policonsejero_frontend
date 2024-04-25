@@ -1,11 +1,15 @@
 :root{--main-color:#0f385a;--search-icon-size:34px}
 .logo{width:70%;max-width:300px;margin:auto}
-#icon_help{position:fixed;right:1%;bottom:15%;color:var(--main-color)}
-#icon_help .fa{height:70px;width:70px;border-radius:50%}
+.icon_fixed{position:fixed;bottom:15%;color:var(--main-color);z-index:100}
+#icon_export{bottom:25%}
+#icon_help{bottom:15%}
+.icon_right{right:1%;left:auto}
+.icon_left{left:1%;right:auto}
+.icon_fixed .fa{height:70px;width:70px;border-radius:50%}
 .card{border:none}
 .search{width:100%;margin-bottom:auto;margin-top:20px;background:#eee;padding:10px;border-radius:5px;position:relative}
 .search-input{color:#fff;border:0;outline:0;background:0 0;width:0;margin-top:5px;caret-color:transparent;line-height:20px;transition:width .4s linear}
-.top-search .search-input,.search .search-input{padding:0 10px;width:100%;caret-color:var(--main-color);font-size:19px;font-weight:300;color:#000;transition:width .4s linear}
+.search .search-input,.top-search .search-input{padding:0 10px;width:100%;caret-color:var(--main-color);font-size:19px;font-weight:300;color:#000;transition:width .4s linear}
 .search-icon{height:var(--search-icon-size);width:var(--search-icon-size);right:2%;display:flex;justify-content:center;align-items:center;color:#fff;background-color:var(--main-color);font-size:10px;top:calc(50% - (var(--search-icon-size)/ 2));position:relative;border-radius:5px;position:absolute}
 .search-icon:hover{color:#fff!important}
 a:link{text-decoration:none}
@@ -45,4 +49,14 @@ to{opacity:1}
 .underlineHover:hover:after{width:100%}
 :focus{outline:0}
 .top-search .logo{width:160px!important}
-.top-search {max-height: 120px !important;}
+.top-search{max-height:120px!important}
+.results{flex-direction:row-reverse}
+.mainResult{text-align:left}
+.tags{display:inline-block;width:100%;font-size:15px}
+.tags2x{font-size:20px}
+.tags .tag{color:gray!important}
+.text-right{text-align:right!important}
+.container_results{flex-direction:row}
+.full-screen-container{width:100%;display:flex;justify-content:center;align-items:center}
+.logo_link{width:auto!important;padding:0!important;margin:0!important;text-align:center}
+.regulation{color:var(--main-color);opacity:.6}
