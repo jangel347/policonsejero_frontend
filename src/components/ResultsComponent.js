@@ -48,9 +48,7 @@ export default function ResultsComponent(props) {
                                         <i className="regulation mx-3">{rule.reglamento}</i>
                                     </Card.Title>
                                     <Card.Text className="mb-1">
-                                        {(rule.contenido.map((contenido) => {
-                                            return (contenido.contenido);
-                                        }))}
+                                        {rule.contenido}
                                     </Card.Text>
                                     <div className="tags">
                                         {
