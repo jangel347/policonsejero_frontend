@@ -3,7 +3,7 @@ import Badge from 'react-bootstrap/Badge';
 export default function ResultsComponent(props) {
     const { result } = props;
     return (
-        <div className="d-inline-block container_results">
+        <div className="d-inline-block container_results w-100">
             <div className="d-block w-100">
                 <div className="row w-100 m-0 p-0">
                     <div className="col-2 mt-3 text-right">
@@ -39,33 +39,34 @@ export default function ResultsComponent(props) {
                         </i>
                     </div>
                     <div className="col-10">
-                        <hr></hr>
-                        {(result) ? (result.rules.map((rule, index) => {
-                            return (<Card style={{ width: '100%' }} key={'rule_' + index} className="shadow-sm mt-3">
-                                <Card.Body>
-                                    <Card.Title>
-                                        {rule.name}
-                                        <i className="regulation mx-3">{rule.reglamento}</i>
-                                    </Card.Title>
-                                    <Card.Text className="mb-1">
-                                        {rule.contenido}
-                                    </Card.Text>
-                                    <div className="tags">
-                                        {
-                                            (result) ? (
-                                                rule.tags.map((tag, index) => {
-                                                    return (
-                                                        <Badge key={index} bg="light" className="mx-1 tag">
-                                                            {tag}
-                                                        </Badge>
-                                                    )
-                                                })
-                                            ) : ''
-                                        }
-                                    </div>
-                                </Card.Body>
-                            </Card>)
-                        })) : 'No hay artículos relacionados'}
+                        <hr/>
+                        {(result) ? (
+                            ((result.rules.length > 0) ? (result.rules.map((rule, index) => {
+                                return (<Card style={{ width: '100%' }} key={'rule_' + index} className="shadow-sm mt-3">
+                                    <Card.Body>
+                                        <Card.Title>
+                                            {rule.nombre}
+                                            <i className="regulation mx-3">{rule.reglamento}</i>
+                                        </Card.Title>
+                                        <Card.Text className="mb-1">
+                                            {rule.contenido}
+                                        </Card.Text>
+                                        <div className="tags">
+                                            {
+                                                (result) ? (
+                                                    rule.etiquetas.map((tag, index) => {
+                                                        return (
+                                                            <Badge key={index} bg="light" className="mx-1 tag">
+                                                                {tag}
+                                                            </Badge>
+                                                        )
+                                                    })
+                                                ) : ''
+                                            }
+                                        </div>
+                                    </Card.Body>
+                                </Card>)
+                            })) : 'No hay normas relacionadas')) : 'N/A'}
                     </div>
                 </div>
             </div>

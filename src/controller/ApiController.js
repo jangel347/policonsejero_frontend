@@ -1,7 +1,7 @@
 class ApiController {
     static async search(situation) {
         const apiResponse = await fetch(
-            'http://localhost:3900/api/search/list', {
+            'http://localhost:5000/evaluate', {
             method: 'POST',
             mode: "cors",
             credentials: "same-origin",
