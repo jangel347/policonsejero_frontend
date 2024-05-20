@@ -14,12 +14,18 @@ import BtnExportComponent from './components/BtnExportComponent';
 import FooterComponent from './components/FooterComponent';
 import { useState } from 'react';
 import ApiController from './controller/ApiController';
+import SearchBy from './pages/SearchByPage';
 
 function App() {
   const pages = [
     {
       path: "/",
       element: <Home />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/buscar_por",
+      element: <SearchBy />,
       errorElement: <ErrorPage />,
     },
     {
@@ -61,6 +67,7 @@ function App() {
             />}
           />
           <Route path="/ayuda" element={<Help />} />
+          <Route path="/buscar_por" element={<SearchBy />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <FooterComponent result={result} />

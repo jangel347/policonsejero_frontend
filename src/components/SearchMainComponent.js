@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaSearch } from 'react-icons/fa';
 import logo from '../images/politecnico-grancolombiano_1.png';
 export default function SearchMainComponent(props) {
-    const { situation, changeSituation, result,changeResult } = props;
+    const { situation, changeSituation, result, changeResult } = props;
     return <main className="container-fluid wrapper fadeInDown">
         <div className="container mt-4 col-md-12 col-12 col-sm-12 col-lg-10 col-xl-8">
             <div className="row d-flex justify-content-center">
@@ -18,6 +18,11 @@ export default function SearchMainComponent(props) {
                         <button onClick={() => changeResult(true)} className="search-icon">
                             <FaSearch size={20} />
                         </button>
+                    </div>
+                </div>
+                <div className="row mt-3">
+                    <div className="col-md-12 text-center">
+                        <Link to={"/buscar_por"} className="btn btn-light">Búsqueda por reglamentos</Link>
                     </div>
                 </div>
             </div>

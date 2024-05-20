@@ -56,6 +56,7 @@ to{opacity:1}
 .tags2x{font-size:20px}
 .tags .tag{color:gray!important}
 .text-right{text-align:right!important}
+.text-left{text-align:left!important}
 .container_results{flex-direction:row}
 .full-screen-container{width:100%;display:flex;justify-content:center;align-items:center}
 .logo_link{width:auto!important;padding:0!important;margin:0!important;text-align:center}

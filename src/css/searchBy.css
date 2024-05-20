@@ -1,0 +1,5 @@
+:root{--main-color:#0f385a}
+.searcherby{height:80px;align-items:center}
+.searcherby .tag{padding:10px 8px;font-size:16px;color:gray;cursor:pointer;transition:normal .2s}
+.searcherby .tag:hover{transform:scale(1.01);box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);}
+.searcherby .tag_active{background-color:var(--main-color)!important;color:#fff}
