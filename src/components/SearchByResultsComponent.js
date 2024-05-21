@@ -5,7 +5,7 @@ export default function SearchByResultsComponent(props) {
         <div className="d-inline-block container_results w-100 text-center pt-4">
             <h1>Reglamento académico</h1>
 
-            <div className='row mx-4 text-left'>
+            <div className='row mx-5 text-left'>
                 <div className='col-md-12'>
                     <div className="shadow-sm mt-3 card">
                         <div className="card-body">
