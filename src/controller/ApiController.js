@@ -45,6 +45,36 @@ class ApiController {
         const data = await apiResponse.json();
         return data;
     }
+
+    static async getRulesBy(filter){
+        const apiResponse = await fetch(
+            'http://localhost:5000/rules_by', {
+            method: 'POST',
+            mode: "cors",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(filter)
+        });
+        const data = await apiResponse.json();
+        return data;
+    }
+
+    static async createStadistic(stadistic){
+        const apiResponse = await fetch(
+            'http://localhost:5000/stadistics/create', {
+            method: 'POST',
+            mode: "cors",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(stadistic)
+        });
+        const data = await apiResponse.json();
+        return data;
+    }
 }
 
 export default ApiController;

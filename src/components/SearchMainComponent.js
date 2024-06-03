@@ -22,7 +22,7 @@ export default function SearchMainComponent(props) {
                 </div>
                 <div className="row mt-3">
                     <div className="col-md-12 text-center">
-                        <Link to={"/buscar_por"} className="btn btn-light">Búsqueda por reglamentos</Link>
+                        <Link to={"/buscar_por"} className="btn btn-light">Búsqueda por reglamentos y etiquetas</Link>
                     </div>
                 </div>
             </div>

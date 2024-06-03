@@ -10,8 +10,8 @@ export default function SearchBy(props) {
     const [searchItems, setSearchItems] = useState(false);
     const [searchResult, setSearchResult] = useState(false);
     async function changeType(type) {
+        setSearchType(type);
         if (type == 0) {
-            setSearchType(false);
             return;
         }
         let apiResponse = false;
@@ -27,16 +27,33 @@ export default function SearchBy(props) {
         setSearchItems(apiResponse);
         console.log(apiResponse);
     }
-    function changeItem(sit) {
+    async function changeItem(sit) {
+        console.log("CAMBIA ITEM =>"+sit);
         setSearchItem(sit);
+        let filter = {};
+        if (searchType == 1) {
+            filter = {
+                "reglamento": sit
+            }
+        } else {
+            filter = {
+                "etiquetas": sit
+            }
+        }
+        await ApiController.getRulesBy(filter).then((res) => {
+            setSearchResult(res)
+         }).catch((err) => {
+            setSearchResult(false)
+         });
     }
+
     return (
         <div>
             <SearchByComponent
                 searchType={searchType} changeType={(a) => changeType(a)}
                 searchItem={searchItem} changeItem={(a) => changeItem(a)}
                 searchItems={searchItems}></SearchByComponent>
-            <SearchByResultsComponent searchResult={searchResult}></SearchByResultsComponent>
+            <SearchByResultsComponent searchResult={searchResult} searchItem={searchItem}></SearchByResultsComponent>
         </div>
     );
 }
