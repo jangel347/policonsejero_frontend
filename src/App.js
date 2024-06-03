@@ -15,6 +15,7 @@ import FooterComponent from './components/FooterComponent';
 import { useState } from 'react';
 import ApiController from './controller/ApiController';
 import SearchBy from './pages/SearchByPage';
+import PreloaderComponent from './components/PreloaderComponent';
 
 function App() {
   const pages = [
@@ -36,6 +37,7 @@ function App() {
   ];
   const router = createBrowserRouter(pages);
   const [result, setResult] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [situation, setSituation] = useState('');
   async function changeResult(result = false) {
     if (!result || situation == '') {
@@ -43,14 +45,19 @@ function App() {
       return;
     }
     let apiResponse = false;
+    setIsLoading(true);
     await ApiController.search(situation).then((res) => {
       apiResponse = res;
+      setIsLoading(false);
     });
     setResult(apiResponse);
     console.log(apiResponse);
   }
   function changeSituation(sit) {
     setSituation(sit);
+  }
+  function changeIsLoading(state) {
+    setIsLoading(state);
   }
   return (
     <div>
@@ -62,16 +69,17 @@ function App() {
         <Routes>
           <Route path="/" element={
             <Home
-              result={result} changeResult={(a) => changeResult(a)}
+              result={result} changeResult={(a) => changeResult(a)} changeIsLoading={(a) => { changeIsLoading(a) }}
               situation={situation} changeSituation={(a) => changeSituation(a)}
             />}
           />
           <Route path="/ayuda" element={<Help />} />
-          <Route path="/buscar_por" element={<SearchBy />} />
+          <Route path="/buscar_por" element={<SearchBy changeIsLoading={(a) => { changeIsLoading(a) }} />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-        <FooterComponent result={result} />
+        <FooterComponent result={result}  />
       </BrowserRouter>
+      <PreloaderComponent isLoading={isLoading}></PreloaderComponent>
     </div >
   );
 }

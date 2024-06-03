@@ -21,7 +21,6 @@ export default function Home(props) {
                 </div>
             )}
             <ModalComponent result={result}></ModalComponent>
-            
         </div>
     );
 }

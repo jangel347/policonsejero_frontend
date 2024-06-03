@@ -5,23 +5,30 @@ import '../css/searchBy.css';
 import { useState } from 'react';
 //Components
 export default function SearchBy(props) {
+    const {changeIsLoading} = props;
     const [searchType, setSearchType] = useState(false);
     const [searchItem, setSearchItem] = useState(false);
     const [searchItems, setSearchItems] = useState(false);
     const [searchResult, setSearchResult] = useState(false);
     async function changeType(type) {
+        setSearchResult(false);
         setSearchType(type);
+        setSearchItem(false);
+        setSearchItems(false);
         if (type == 0) {
             return;
         }
         let apiResponse = false;
+        changeIsLoading(true);
         if (type == 1) {
             await ApiController.getRegulations().then((res) => {
                 apiResponse = res.regulations;
+                changeIsLoading(false);
             });
         } else {
             await ApiController.getTags().then((res) => {
                 apiResponse = res.tags;
+                changeIsLoading(false);
             });
         }
         setSearchItems(apiResponse);

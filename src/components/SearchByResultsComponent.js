@@ -7,10 +7,10 @@ export default function SearchByResultsComponent(props) {
 
         <div className="d-inline-block container_results w-100 text-center pt-4 pb-5">
             {(searchItem) ?
-                <h1>searchItem </h1> :
+                <h1>{searchItem}</h1> :
                 (<div className='mt-5'>
-                    <img src={logo} alt="Logo Politécnico Grancolombiano" className="logo mb-4" />
-                    <h2>Búsqueda por reglamentos o etiquetas</h2>
+                    <img src={logo} alt="Logo Politécnico Grancolombiano" className="logo my-4" />
+                    <h2 className='text-secondary'>Búsqueda por reglamentos o etiquetas</h2>
                 </div>)
             }
 
