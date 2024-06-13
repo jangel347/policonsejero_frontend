@@ -102,7 +102,7 @@ export default function ModalComponent(props) {
                         </select>
                     </div>
                     <div className="form-group mb-3">
-                        <label className="mb-2" htmlFor="precision_input">¿Qué tan bien crees que la aplicación entendió la situación?</label>
+                        <label className="mb-2" htmlFor="precision_input">¿Cómo calificas la precisión de la respuesta y normas que brindó la aplicación?</label>
                         <select
                             className="form-control"
                             type="number"
@@ -110,11 +110,11 @@ export default function ModalComponent(props) {
                             value={formData['precision']}
                         >
                             <option>Seleccione una opción</option>
-                            <option value='1'>Muy difícil</option>
-                            <option value='2'>Difícil</option>
+                            <option value='1'>Muy malo</option>
+                            <option value='2'>Malo</option>
                             <option value='3'>Normal</option>
-                            <option value='4'>Fácil</option>
-                            <option value='5'>Muy fácil</option>
+                            <option value='4'>Bueno</option>
+                            <option value='5'>Muy bueno</option>
                         </select>
                     </div>
                     <div className="form-group mb-3">
