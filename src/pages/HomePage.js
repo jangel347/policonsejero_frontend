@@ -3,7 +3,7 @@ import '../css/HomePage.css';
 import SearchMainComponent from '../components/SearchMainComponent';
 import SearchResultComponent from '../components/SearchResultComponent';
 import ResultsComponent from '../components/ResultsComponent';
-import ModalComponent from '../components/ModalComponent';
+import ModalSurveyComponent from '../components/ModalSurveyComponent';
 
 export default function Home(props) {
     const { result, changeResult, situation, changeSituation } = props;
@@ -20,7 +20,7 @@ export default function Home(props) {
                     <SearchMainComponent situation={situation} changeSituation={(a) => changeSituation(a)} result={result} changeResult={(a) => changeResult(a)} />
                 </div>
             )}
-            <ModalComponent result={result}></ModalComponent>
+            <ModalSurveyComponent result={result}></ModalSurveyComponent>
         </div>
     );
 }

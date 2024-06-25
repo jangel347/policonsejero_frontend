@@ -15,7 +15,7 @@ const customStyles = {
     },
 };
 
-export default function ModalComponent(props) {
+export default function ModalSurveyComponent(props) {
     const { result } = props;
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [formData, setFormData] = useState({
@@ -60,7 +60,6 @@ export default function ModalComponent(props) {
                     <button className='btn btn-secondary mx-4' onClick={openModal}>Expresa tu opinión</button>
                 </div>
                 : '')}
-
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
@@ -113,8 +112,8 @@ export default function ModalComponent(props) {
                             <option value='1'>Muy malo</option>
                             <option value='2'>Malo</option>
                             <option value='3'>Normal</option>
-                            <option value='4'>Bueno</option>
-                            <option value='5'>Muy bueno</option>
+                            <option value='4'>Preciso</option>
+                            <option value='5'>Muy Preciso</option>
                         </select>
                     </div>
                     <div className="form-group mb-3">

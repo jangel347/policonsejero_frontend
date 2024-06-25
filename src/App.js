@@ -7,15 +7,13 @@ import {
 } from "react-router-dom";
 //Components/pages
 import Home from './pages/HomePage';
-import Help from './pages/HelpPage';
 import ErrorPage from './pages/ErrorPage';
-import BtnHelpComponent from './components/BtnHelpComponent';
-import BtnExportComponent from './components/BtnExportComponent';
 import FooterComponent from './components/FooterComponent';
 import { useState } from 'react';
 import ApiController from './controller/ApiController';
 import SearchBy from './pages/SearchByPage';
 import PreloaderComponent from './components/PreloaderComponent';
+import ModalHelpComponent from './components/ModalHelpComponent';
 
 function App() {
   const pages = [
@@ -28,12 +26,7 @@ function App() {
       path: "/buscar_por",
       element: <SearchBy />,
       errorElement: <ErrorPage />,
-    },
-    {
-      path: "/ayuda",
-      element: <Help />,
-      errorElement: <ErrorPage />,
-    },
+    }
   ];
   const router = createBrowserRouter(pages);
   const [result, setResult] = useState(false);
@@ -62,10 +55,6 @@ function App() {
   return (
     <div>
       <BrowserRouter router={router} >
-        <BtnHelpComponent result={result} />
-        {(result) ?
-          <BtnExportComponent result={result} />
-          : ''}
         <Routes>
           <Route path="/" element={
             <Home
@@ -73,13 +62,13 @@ function App() {
               situation={situation} changeSituation={(a) => changeSituation(a)}
             />}
           />
-          <Route path="/ayuda" element={<Help />} />
           <Route path="/buscar_por" element={<SearchBy changeIsLoading={(a) => { changeIsLoading(a) }} />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <FooterComponent result={result}  />
       </BrowserRouter>
       <PreloaderComponent isLoading={isLoading}></PreloaderComponent>
+      <ModalHelpComponent result={result}></ModalHelpComponent>
     </div >
   );
 }

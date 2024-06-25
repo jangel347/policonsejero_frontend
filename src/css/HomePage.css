@@ -2,7 +2,7 @@
 .logo{width:70%;max-width:300px;margin:auto}
 .icon_fixed{position:fixed;bottom:15%;color:var(--main-color);z-index:0}
 #icon_export{bottom:25%}
-#icon_help{bottom:15%}
+#icon_help{bottom:15%;border-style:none;border:none;background-color:transparent}
 .icon_right{right:1%;left:auto}
 .icon_left{left:1%;right:auto}
 .icon_fixed .fa{height:70px;width:70px;border-radius:50%}
