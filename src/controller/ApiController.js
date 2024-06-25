@@ -1,7 +1,7 @@
 class ApiController {
     static async search(situation) {
         const apiResponse = await fetch(
-            'http://localhost:5000/evaluate', {
+            'http://localhost:5000/api/evaluate', {
             method: 'POST',
             mode: "cors",
             credentials: "same-origin",
@@ -18,7 +18,7 @@ class ApiController {
 
     static async getRegulations() {
         const apiResponse = await fetch(
-            'http://localhost:5000/regulations', {
+            'http://localhost:5000/api/regulations', {
             method: 'POST',
             mode: "cors",
             credentials: "same-origin",
@@ -33,7 +33,7 @@ class ApiController {
 
     static async getTags() {
         const apiResponse = await fetch(
-            'http://localhost:5000/tags', {
+            'http://localhost:5000/api/tags', {
             method: 'POST',
             mode: "cors",
             credentials: "same-origin",
@@ -48,7 +48,7 @@ class ApiController {
 
     static async getRulesBy(filter){
         const apiResponse = await fetch(
-            'http://localhost:5000/rules_by', {
+            'http://localhost:5000/api/rules_by', {
             method: 'POST',
             mode: "cors",
             credentials: "same-origin",
@@ -63,7 +63,7 @@ class ApiController {
 
     static async createStadistic(stadistic){
         const apiResponse = await fetch(
-            'http://localhost:5000/stadistics/create', {
+            'http://localhost:5000/api/stadistics/create', {
             method: 'POST',
             mode: "cors",
             credentials: "same-origin",
